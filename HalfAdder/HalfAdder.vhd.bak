@@ -1,0 +1,16 @@
+-- Half Adder 						--
+-- Carlos Antonio Pazos Reyes --
+
+Library IEEE;						-- declaracion de librerias
+use ieee.std_logic_1164.ALL;
+
+Entity HalfAdder is
+Port (A, B: in std_logic;		-- entidad
+		S, Co: out std_logic);
+end HalfAdder;
+
+Architecture ARC of HalfAdder is --arquitectura
+begin
+	S <= A xor B;		-- instrucciones concurrentes
+	Co <= A and B;
+end ARC;
