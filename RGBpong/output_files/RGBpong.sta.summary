@@ -1,0 +1,137 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'PAR_SWITCH2[0]'
+Slack : -17.200
+TNS   : -169.555
+
+Type  : Slow 1200mV 85C Model Setup 'PAR_SWITCH1[0]'
+Slack : -15.985
+TNS   : -154.430
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -2.334
+TNS   : -46.108
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.314
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PAR_SWITCH1[0]'
+Slack : 1.738
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PAR_SWITCH2[0]'
+Slack : 2.008
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'CLK'
+Slack : -2.136
+TNS   : -36.921
+
+Type  : Slow 1200mV 85C Model Removal 'CLK'
+Slack : 1.546
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PAR_SWITCH2[0]'
+Slack : -3.000
+TNS   : -158.164
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PAR_SWITCH1[0]'
+Slack : -3.000
+TNS   : -102.534
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -40.882
+
+Type  : Slow 1200mV 0C Model Setup 'PAR_SWITCH2[0]'
+Slack : -15.622
+TNS   : -154.008
+
+Type  : Slow 1200mV 0C Model Setup 'PAR_SWITCH1[0]'
+Slack : -14.656
+TNS   : -141.053
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -2.013
+TNS   : -39.100
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.284
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PAR_SWITCH1[0]'
+Slack : 1.582
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PAR_SWITCH2[0]'
+Slack : 2.012
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'CLK'
+Slack : -1.847
+TNS   : -31.903
+
+Type  : Slow 1200mV 0C Model Removal 'CLK'
+Slack : 1.418
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PAR_SWITCH2[0]'
+Slack : -3.000
+TNS   : -135.753
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PAR_SWITCH1[0]'
+Slack : -3.000
+TNS   : -86.003
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -40.882
+
+Type  : Fast 1200mV 0C Model Setup 'PAR_SWITCH2[0]'
+Slack : -8.586
+TNS   : -83.518
+
+Type  : Fast 1200mV 0C Model Setup 'PAR_SWITCH1[0]'
+Slack : -7.813
+TNS   : -74.449
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -0.623
+TNS   : -8.626
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.144
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PAR_SWITCH1[0]'
+Slack : 0.764
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PAR_SWITCH2[0]'
+Slack : 0.818
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'CLK'
+Slack : -0.518
+TNS   : -7.510
+
+Type  : Fast 1200mV 0C Model Removal 'CLK'
+Slack : 0.714
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PAR_SWITCH2[0]'
+Slack : -3.000
+TNS   : -60.100
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PAR_SWITCH1[0]'
+Slack : -3.000
+TNS   : -43.841
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -35.222
+
+------------------------------------------------------------

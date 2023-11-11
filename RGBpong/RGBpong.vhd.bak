@@ -1,0 +1,188 @@
+-- Programacion RGB del juego pong en movimiento
+-- Carlos A. Pazos Reyes	A0137826
+-- Manuel Agustin Diaz Vivanco	A01379673
+
+-- Dependencias: --
+-- HalfAdder.vhd
+-- MasUno10b.vhd
+-- Contador10b.vhd
+-- ContadorMod525.vhd
+-- ContadorMod800.vhd
+-- SyncVGA800x525.vhd
+
+-- Este codigo es la definicion en maquinas de estado y diseño comportamental de lo que hay que dibujar en la pantalla
+-- Entradas:
+	-- 
+	-- 
+-- Salidas:
+	-- 
+	-- 
+
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;									-- librerias
+
+ENTITY RGBcruz IS
+	PORT (CLK, RST, START: IN std_logic;							-- senales  clk, rst y start para tiempos y control
+			H_SYNC, V_SYNC: OUT std_logic;							-- syncs horizontales y verticales
+			R, G, B: OUT std_logic_vector (3 DOWNTO 0));			-- combinacion de colores en vector de 4 cada uno
+END ENTITY RGBcruz;
+
+ARCHITECTURE ARC OF RGBcruz IS
+
+COMPONENT SyncVGA800x525 IS
+	PORT (CLK, RST, START: IN std_logic;							-- senales de control clk y reset y start
+			PIXEL, LINEA: OUT std_logic_vector (9 DOWNTO 0);	-- cuentas de ambos contadores
+			H_SYNC, V_SYNC: OUT std_logic);							-- senales sincronizacion
+END COMPONENT SyncVGA800x525;
+
+TYPE ESTADOS_X IS (IDLE_X, BACK_PORCH_X, VISIBLE_X, FRONT_PORCH_X);	--estados en X
+SIGNAL EDO_X, EDO_FUTURO_X: ESTADOS_X;
+
+TYPE ESTADOS_Y IS (IDLE_Y, BACK_PORCH_Y, VISIBLE_Y, FRONT_PORCH_Y);	-- estados en y
+SIGNAL EDO_Y, EDO_FUTURO_Y: ESTADOS_Y;												
+
+SIGNAL SCREEN_X, SCREEN_Y: std_logic_vector (9 DOWNTO 0);	-- cuentas en x y
+SIGNAL VISUAL_ENABLE_X, VISUAL_ENABLE_Y: std_logic;				-- en zona visible
+
+BEGIN
+	SYNC: SyncVGA800x525 PORT MAP (CLK, RST, START, SCREEN_X, SCREEN_Y, H_SYNC, V_SYNC);	-- cuentas y syncs
+	
+	P1: PROCESS (CLK, RST)								-- avance en Flip Flops de estados en horizontal
+		BEGIN
+			IF (RST = '0') THEN
+				EDO_X <= IDLE_X;
+			ELSIF (CLK'EVENT AND CLK = '1') THEN
+				EDO_X <= EDO_FUTURO_X;
+			END IF;
+	END PROCESS P1;
+	
+	P2: PROCESS (EDO_X, SCREEN_X, START)				-- transiciones temporales entre estados en horizontal
+		BEGIN
+			CASE (EDO_X) IS
+				
+				WHEN IDLE_X =>	IF (START = '1') THEN
+										EDO_FUTURO_X <= BACK_PORCH_X;
+									ELSE
+										EDO_FUTURO_X <= IDLE_X;
+									END IF;
+																
+																-- 144
+				WHEN BACK_PORCH_X =>	IF (SCREEN_X = "0010010000") THEN
+												EDO_FUTURO_X <= VISIBLE_X;
+											ELSE 
+												EDO_FUTURO_X <= BACK_PORCH_X;
+											END IF;
+				
+															-- 784
+				WHEN VISIBLE_X =>	IF (SCREEN_X = "1100010000") THEN
+											EDO_FUTURO_X <= FRONT_PORCH_X;
+										ELSE
+											EDO_FUTURO_X <= VISIBLE_X;
+										END IF;
+																	
+																	-- 0
+				WHEN FRONT_PORCH_X =>	IF (SCREEN_X = "0000000000") THEN
+													EDO_FUTURO_X <= BACK_PORCH_X;
+												ELSE
+													EDO_FUTURO_X <= FRONT_PORCH_X;
+												END IF;
+				
+				WHEN OTHERS => NULL;
+			END CASE;
+	END PROCESS P2;
+	
+	P3: PROCESS (EDO_X)							-- cableado para habilitar el enable visual en horizontal
+		BEGIN
+			CASE (EDO_X) IS
+				WHEN IDLE_X =>	VISUAL_ENABLE_X <= '0';
+				WHEN BACK_PORCH_X =>	VISUAL_ENABLE_X <= '0';
+				WHEN VISIBLE_X =>	VISUAL_ENABLE_X <= '1';
+				WHEN FRONT_PORCH_X => VISUAL_ENABLE_X <= '0';
+				WHEN OTHERS => NULL;
+			END CASE;
+	END PROCESS P3;
+	
+	-- ahora para visual vertical
+	P4: PROCESS (CLK, RST)								-- avance en Flip Flops de estados en vertical
+		BEGIN
+			IF (RST = '0') THEN
+				EDO_Y <= IDLE_Y;
+			ELSIF (CLK'EVENT AND CLK = '1') THEN
+				EDO_Y <= EDO_FUTURO_Y;
+			END IF;
+	END PROCESS P4;
+	
+	P5: PROCESS (EDO_Y, SCREEN_Y, START)				-- transiciones temporales entre estados en vertical
+		BEGIN
+			CASE (EDO_Y) IS
+				
+				WHEN IDLE_Y =>	IF (START = '1') THEN
+										EDO_FUTURO_Y <= BACK_PORCH_Y;
+									ELSE
+										EDO_FUTURO_Y <= IDLE_Y;
+									END IF;
+																
+																-- 35
+				WHEN BACK_PORCH_Y =>	IF (SCREEN_Y = "0000100011") THEN
+												EDO_FUTURO_Y <= VISIBLE_Y;
+											ELSE 
+												EDO_FUTURO_Y <= BACK_PORCH_Y;
+											END IF;
+				
+															-- 515
+				WHEN VISIBLE_Y =>	IF (SCREEN_Y = "1000000011") THEN
+											EDO_FUTURO_Y <= FRONT_PORCH_Y;
+										ELSE
+											EDO_FUTURO_Y <= VISIBLE_Y;
+										END IF;
+																	
+																	-- 0
+				WHEN FRONT_PORCH_Y =>	IF (SCREEN_Y = "0000000000") THEN
+													EDO_FUTURO_Y <= BACK_PORCH_Y;
+												ELSE
+													EDO_FUTURO_Y <= FRONT_PORCH_Y;
+												END IF;
+				
+				WHEN OTHERS => NULL;
+			END CASE;
+	END PROCESS P5;
+	
+	P6: PROCESS (EDO_Y)							-- cableado para habilitar el enable visual en vertical
+		BEGIN
+			CASE (EDO_Y) IS
+				WHEN IDLE_Y =>	VISUAL_ENABLE_Y <= '0';
+				WHEN BACK_PORCH_Y =>	VISUAL_ENABLE_Y <= '0';
+				WHEN VISIBLE_Y =>	VISUAL_ENABLE_Y <= '1';
+				WHEN FRONT_PORCH_Y => VISUAL_ENABLE_Y <= '0';
+				WHEN OTHERS => NULL;
+			END CASE;
+	END PROCESS P6;
+	
+	P7: PROCESS (VISUAL_ENABLE_X, VISUAL_ENABLE_Y, SCREEN_X, SCREEN_Y)	-- definicion de salidas RGB
+		BEGIN
+			IF (VISUAL_ENABLE_X = '1' AND VISUAL_ENABLE_Y = '1') THEN
+						-- 315 + 144 =	459				-- 325 + 144 = 469
+				IF (SCREEN_X >= "0111001011" AND SCREEN_X <= "0111010101") THEN		-- linea cruz en vertical
+					R <= X"F";
+					G <= X"F";
+					B <= X"F";
+							-- 235 + 35 = 270					-- 245 + 35 = 280
+				ELSIF (SCREEN_Y >= "0100001110" AND SCREEN_Y <= "0100011000") THEN		-- linea cruz en horizontal
+					R <= X"F";
+					G <= X"F";
+					B <= X"F";
+				ELSE																				-- fondo
+					R <= X"7";
+					G <= X"A";
+					B <= X"A";
+				END IF;
+				
+			ELSE
+				R <= X"0";
+				G <= X"0";
+				B <= X"0";
+			END IF;
+	END PROCESS P7;
+
+END ARCHITECTURE ARC;
