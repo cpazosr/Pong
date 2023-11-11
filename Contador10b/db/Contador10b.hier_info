@@ -1,0 +1,148 @@
+|Contador10b
+CLK => Q[0].CLK
+CLK => Q[1].CLK
+CLK => Q[2].CLK
+CLK => Q[3].CLK
+CLK => Q[4].CLK
+CLK => Q[5].CLK
+CLK => Q[6].CLK
+CLK => Q[7].CLK
+CLK => Q[8].CLK
+CLK => Q[9].CLK
+RST => Q[0].ACLR
+RST => Q[1].ACLR
+RST => Q[2].ACLR
+RST => Q[3].ACLR
+RST => Q[4].ACLR
+RST => Q[5].ACLR
+RST => Q[6].ACLR
+RST => Q[7].ACLR
+RST => Q[8].ACLR
+RST => Q[9].ACLR
+CUENTA[0] << Q[0].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[1] << Q[1].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[2] << Q[2].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[3] << Q[3].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[4] << Q[4].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[5] << Q[5].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[6] << Q[6].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[7] << Q[7].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[8] << Q[8].DB_MAX_OUTPUT_PORT_TYPE
+CUENTA[9] << Q[9].DB_MAX_OUTPUT_PORT_TYPE
+Cout << MasUno10b:I0.Cout
+
+
+|Contador10b|MasUno10b:I0
+A[0] => HalfAdder:I0.A
+A[1] => HalfAdder:I1.A
+A[2] => HalfAdder:I2.A
+A[3] => HalfAdder:I3.A
+A[4] => HalfAdder:I4.A
+A[5] => HalfAdder:I5.A
+A[6] => HalfAdder:I6.A
+A[7] => HalfAdder:I7.A
+A[8] => HalfAdder:I8.A
+A[9] => HalfAdder:I9.A
+S[0] <= HalfAdder:I0.S
+S[1] <= HalfAdder:I1.S
+S[2] <= HalfAdder:I2.S
+S[3] <= HalfAdder:I3.S
+S[4] <= HalfAdder:I4.S
+S[5] <= HalfAdder:I5.S
+S[6] <= HalfAdder:I6.S
+S[7] <= HalfAdder:I7.S
+S[8] <= HalfAdder:I8.S
+S[9] <= HalfAdder:I9.S
+Cout <= HalfAdder:I9.Co
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I3
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I4
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I5
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I6
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I7
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I8
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Contador10b|MasUno10b:I0|HalfAdder:I9
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
