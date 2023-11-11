@@ -1,7 +1,7 @@
 # Pong
 VHDL Version of Pong
 
-Developed by @AgusDV and @cpazosr
+Developed by @AgusDV111 and @cpazosr
 
 Following top down methodology, the design of all the components that integrate the top entity. Programmed and tested in VHDL through Quartus Prime Lite v18.1 Designed and tested for Intel DE10-Lite alongside other simple digital buttons and joystick.
 
