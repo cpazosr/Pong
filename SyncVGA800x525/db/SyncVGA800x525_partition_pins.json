@@ -1,0 +1,109 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "PIXEL[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[1]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[3]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[4]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[5]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[6]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[7]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[8]",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL[9]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "LINEA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "H_SYNC",
+					"strict" : false
+				},
+				{
+					"name" : "V_SYNC",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "RST",
+					"strict" : false
+				},
+				{
+					"name" : "START",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
