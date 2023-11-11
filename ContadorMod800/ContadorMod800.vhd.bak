@@ -1,0 +1,41 @@
+-- Contador Modulo 800
+-- Carlos Pazos, Italia Suarez, Roberto Manzo
+-- matriculas ..2, 		..7, 				..1
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;										-- librerias
+
+ENTITY ContadorMod14 IS												-- entidad
+	PORT (CLK, RST: IN std_logic;									-- entradas
+			CUENTA: OUT std_logic_vector (3 DOWNTO 0));		-- salidas
+END ENTITY ContadorMod14;
+
+ARCHITECTURE ARC OF ContadorMod14 IS
+
+COMPONENT Contador4b IS												-- componente contador en 4 bits
+	PORT (CLK, RST: IN std_logic;
+			CUENTA: OUT std_logic_vector (3 DOWNTO 0));
+END COMPONENT Contador4b;
+
+SIGNAL RST_MOD14: std_logic;										-- Reset en modulo 14
+SIGNAL Q: std_logic_vector (3 DOWNTO 0);						-- salida FF
+
+BEGIN
+	I0: Contador4b PORT MAP (CLK, RST_MOD14, Q);				-- instancia contador con reset modulo
+	
+	P1: PROCESS (RST, Q)
+	BEGIN
+		IF (RST = '0') THEN 											-- reset asincrono en bajo
+			RST_MOD14 <= '0';
+	--	ELSIF (Q = "1110") THEN 									-- reset cuando llegue a 14, para parar en 13
+	--	ELSIF (Q = "XXXX") THEN										-- XXXX como el numero de 4 bits si quisieramos hacer modulo de otro numero
+		ELSIF (Q = "1111") THEN										-- Por ejemplo modulo 15
+			RST_MOD14 <= '0';
+		ELSE
+			RST_MOD14 <= '1';											-- sino no se resetee nada
+		END IF;
+	END PROCESS P1;
+
+CUENTA <= Q;															-- actualizar la cuenta
+	
+END ARCHITECTURE ARC;
