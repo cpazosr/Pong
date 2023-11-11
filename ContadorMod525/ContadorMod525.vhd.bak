@@ -1,0 +1,40 @@
+-- Contador Modulo 800
+-- Carlos A. Pazos Reyes A01378262
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;										-- librerias
+
+ENTITY ContadorMod525 IS											-- entidad
+	PORT (CLK, RST: IN std_logic;									-- entradas
+			CUENTA: OUT std_logic_vector (9 DOWNTO 0);		-- cuenta de 10 bits
+			Cout: OUT std_logic);									-- carry out ENABLE para la otra cuenta
+END ENTITY ContadorMod525;
+
+ARCHITECTURE ARC OF ContadorMod525 IS
+
+COMPONENT Contador10b IS
+	PORT (CLK, RST: IN std_logic;									-- entradas de control y avance
+			CUENTA: OUT std_logic_vector (9 DOWNTO 0);		-- cuenta 10 bits
+			Cout: OUT std_logic);									-- Cout fin de cuenta = 1
+END COMPONENT Contador10b;
+
+SIGNAL RST_MOD525: std_logic;										-- Reset en modulo 525
+SIGNAL Q: std_logic_vector (9 DOWNTO 0);						-- salida FF
+
+BEGIN
+	I0: Contador10b PORT MAP (CLK, RST_MOD525, Q, Cout);	-- instancia contador con reset modulo
+	
+	P1: PROCESS (RST, Q)
+	BEGIN
+		IF (RST = '0') THEN 											-- reset asincrono en bajo
+			RST_MOD525 <= '0';
+		ELSIF (Q = "1100100000") THEN								-- Modulo 525
+			RST_MOD525 <= '0';
+		ELSE
+			RST_MOD525 <= '1';										-- sino no se resetea, continua la cuenta
+		END IF;
+	END PROCESS P1;
+
+	CUENTA <= Q;														-- actualizar la cuenta
+	
+END ARCHITECTURE ARC;
