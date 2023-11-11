@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -11.474
+TNS   : -885.471
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -0.863
+TNS   : -0.863
+
+Type  : Slow 1200mV 85C Model Hold 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : 0.308
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.791
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -3.880
+TNS   : -275.123
+
+Type  : Slow 1200mV 85C Model Removal 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : 1.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -4.222
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -1.222
+TNS   : -157.638
+
+Type  : Slow 1200mV 0C Model Setup 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -10.336
+TNS   : -792.744
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -0.636
+TNS   : -0.636
+
+Type  : Slow 1200mV 0C Model Hold 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : 0.279
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.630
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -3.475
+TNS   : -244.236
+
+Type  : Slow 1200mV 0C Model Removal 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : 1.231
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -4.222
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -1.222
+TNS   : -157.638
+
+Type  : Fast 1200mV 0C Model Setup 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -4.977
+TNS   : -369.913
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -0.327
+TNS   : -0.327
+
+Type  : Fast 1200mV 0C Model Hold 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : 0.140
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.539
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -1.364
+TNS   : -89.151
+
+Type  : Fast 1200mV 0C Model Removal 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : 0.635
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -4.122
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DivisorFrecuenciaPorMitad:Freq|FlipFlopJK:FF0|C'
+Slack : -1.000
+TNS   : -129.000
+
+------------------------------------------------------------

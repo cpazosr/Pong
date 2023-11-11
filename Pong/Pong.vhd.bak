@@ -1,0 +1,51 @@
+-- Top Entity de codigo para juego Pong en VGA
+-- Carlos A. Pazos Reyes	A0137826
+-- Manuel Agustin Diaz Vivanco	A01379673
+
+-- Dependencias: --
+-- HalfAdder.vhd
+-- MasUno10b.vhd
+-- Contador10b.vhd
+-- ContadorMod525.vhd
+-- ContadorMod800.vhd
+-- SyncVGA800x525.vhd
+-- RGBpong.vhd
+-- FlipFlopJK.vhd
+-- DivisorFrecuenciaPorMitad.vhd
+
+-- Este codigo es la definicion en maquinas de estado, lo que hay que dibujar en la pantalla
+-- Recibe CLK para los contadores y senales de control como RST y START
+-- Sus salidas son:
+	-- H_SYNC: senal de sincronizacion con la pantalla en horizontal
+	-- V_SYNC: sincronizacion en vertical
+	-- R, G, B: colores a colocar en la pantalla por pixel en formato de 12 bits hex
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;									-- librerias
+
+ENTITY Cruz IS
+	PORT (CLK, RST, START: IN std_logic;						-- senales de tiempo y control
+			H_SYNC, V_SYNC: OUT std_logic;						-- sincronizacion horizontal y vertical con VGA
+			R, G, B: OUT std_logic_vector (3 DOWNTO 0));		-- salida de colores 12 bits hex
+END ENTITY Cruz;
+
+ARCHITECTURE ARC Of Cruz IS
+
+COMPONENT DivisorFrecuenciaPorMitad IS						-- component divisor de frecuencia
+	PORT (CLK_ENTRADA, RST: IN std_logic;					-- reloj entrada y reset
+			CLK_SALIDA: OUT std_logic);						-- reloj mitad de frecuencia
+END COMPONENT DivisorFrecuenciaPorMitad;
+
+COMPONENT RGBcruz IS														-- componente determinante de colores RGB
+	PORT (CLK, RST, START: IN std_logic;							-- senales  clk, rst y start para tiempos y control
+			H_SYNC, V_SYNC: OUT std_logic;							-- syncs horizontales y verticales
+			R, G, B: OUT std_logic_vector (3 DOWNTO 0));			-- combinacion de colores en vector de 4 cada uno
+END COMPONENT RGBcruz;
+
+SIGNAL C: std_logic;												-- cables
+
+BEGIN
+	Freq: DivisorFrecuenciaPorMitad PORT MAP (CLK, RST, C);				-- 25Mhz
+	RGBs: RGBcruz PORT MAP (C, RST, START, H_SYNC, V_SYNC, R, G, B);	-- coloreado
+
+END ARCHITECTURE ARC;
