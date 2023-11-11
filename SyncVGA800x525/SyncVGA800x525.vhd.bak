@@ -1,0 +1,12 @@
+-- Señales de syncronizacion de pantalla VGA 800 pixeles x 525 lineas
+-- Carlos A. Pazos Reyes	A01378262
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY SyncVGA800x525 IS
+	PORT (CLK, RST: std_logic;);
+END ENTITY SyncVGA800x525;
+
+ARCHITECTURE ARC OF SyncVGA800x525 IS
+

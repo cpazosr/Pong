@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Mar 03 17:50:31 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : SyncVGA800x525
+Top-level Entity Name : SyncVGA800x525
+Family : MAX 10
+Total logic elements : 49
+    Total combinational functions : 49
+    Dedicated logic registers : 25
+Total registers : 25
+Total pins : 25
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

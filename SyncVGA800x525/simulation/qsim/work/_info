@@ -1,0 +1,147 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/pazos/Documents/Vida Universitaria/IRSD Carrera Tec/4 semestre/Diseno con logica programable/SyncVGA800x525/simulation/qsim
+Ehard_block
+Z1 w1615542146
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 7d5Xo;QBOkc31OfQTzSXV0
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 IfY7Mh2WPBc;@7U@3<I^[0
+R0
+Z8 8SyncVGA800x525.vho
+Z9 FSyncVGA800x525.vho
+l0
+L34
+V8_BbEmGd;OHS6h@;gFc7W3
+!s100 ROH=D<N4CT6aCZ<37A[_?0
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1615542147
+!i10b 1
+Z12 !s108 1615542147.000000
+Z13 !s90 -work|work|SyncVGA800x525.vho|
+Z14 !s107 SyncVGA800x525.vho|
+!i113 1
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 hard_block 0 22 8_BbEmGd;OHS6h@;gFc7W3
+l75
+L53
+Vg=W`CQ>24lhYF71zFSkY43
+!s100 zW6ML5NVY?Ai`]`n2XhME3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Esyncvga800x525
+R1
+R3
+R7
+R2
+Z17 DPx6 altera 11 dffeas_pack 0 22 :S1C`o89Vbe5bV6`:6CaB3
+R4
+R5
+R6
+Z18 DPx6 altera 28 altera_primitives_components 0 22 z?[99Tn<@QGNik3V1c6ah1
+R0
+R8
+R9
+l0
+L90
+VQ6JcTWVad2`G[^Kjbe9Fe0
+!s100 2@mc6`:;ZoXoBkYD@P4<L1
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Astructure
+R3
+R7
+R2
+R17
+R4
+R5
+R6
+R18
+DEx4 work 14 syncvga800x525 0 22 Q6JcTWVad2`G[^Kjbe9Fe0
+l248
+L130
+V`RB^Ai8=2m>zbf6Z3g8MC3
+!s100 VCLLa5]IUg9YT3M8WE=kF3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Esyncvga800x525_vhd_vec_tst
+Z19 w1615542145
+R5
+R6
+R0
+Z20 8SyncVGA800x525.vwf.vht
+Z21 FSyncVGA800x525.vwf.vht
+l0
+L31
+VK0AzW^C?7_LITVJ`0Zo0k0
+!s100 H]Z81;oHTZfWCTI_fRFAP2
+R10
+32
+R11
+!i10b 1
+R12
+Z22 !s90 -work|work|SyncVGA800x525.vwf.vht|
+Z23 !s107 SyncVGA800x525.vwf.vht|
+!i113 1
+R15
+R16
+Asyncvga800x525_arch
+R5
+R6
+Z24 DEx4 work 26 syncvga800x525_vhd_vec_tst 0 22 K0AzW^C?7_LITVJ`0Zo0k0
+l54
+L33
+VKVLgUVzQR7k]?j32UNnWX2
+!s100 MPVgm8[U@NPH=:[=Oz=Nd2
+R10
+32
+R11
+!i10b 1
+R12
+R22
+R23
+!i113 1
+R15
+R16
