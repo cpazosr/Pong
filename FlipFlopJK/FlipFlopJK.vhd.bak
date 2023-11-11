@@ -1,0 +1,22 @@
+-- Flip Flop tipo JK
+-- Carlos A. Pazos Reyes	A01378262
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY FlipFlopJK IS
+	PORT (CLK, RST, J, K: IN std_logic;
+			Q, NOT_Q: OUT std_logic);
+END ENTITY FlipFlopJK;
+
+ARCHITECTURE ARC OF FlipFlopJK IS
+
+BEGIN
+	P1: PROCESS (CLK, RST, J, K)
+		BEGIN
+			IF (RST = '0') THEN
+				Q <= '0';
+			ELSIF (CLK'EVENT AND CLK = '1') THEN
+				CASE (J,K) IS
+					BEGIN 
+						
