@@ -1,0 +1,37 @@
+-- Contador de 10 bits
+-- Carlos A. Pazos Reyes	A01378262
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY Contador10b IS
+	PORT (CLK, RST: IN std_logic;									-- entradas
+			CUENTA: OUT std_logic_vector (9 DOWNTO 0);		-- salidas
+			Cout: OUT std_logic);									-- Cout fin de cuenta = 1
+END ENTITY Contador10b;
+
+
+ARCHITECTURE ARC OF Contador10b IS								-- aqruitectura
+
+COMPONENT MasUno10b IS												-- componente sumador en 1
+	PORT (A: IN std_logic_vector (9 DOWNTO 0);				-- 10 bits entrada: 1
+			S: OUT std_logic_vector (9 DOWNTO 0);				-- cuenta sumada
+			Cout: OUT std_logic);									-- carry out si necesario
+END COMPONENT MasUno10b;
+
+SIGNAL D, Q: std_logic_vector (3 DOWNTO 0);					-- cables D y Q de 4 bits
+SIGNAL CUENTA: std_logic_vector (3 DOWNTO 0);				-- cuenta salida del sumador
+
+BEGIN 
+	I0: MasUno4b PORT MAP (Q, D, Cout);							-- instancias
+	
+	P1: PROCESS (CLK, RST, START)									-- Flip Flop
+	BEGIN 
+		IF (RST = '0') THEN										-- reset en 0 asincrono
+			Q <= "0000000000";
+		ELSIF (CLK'EVENT AND CLK = '1') THEN				-- aumenta cuenta en clk alto
+			Q <= D;
+		END IF;
+	END PROCESS P1;
+
+END ARCHITECTURE ARC;
