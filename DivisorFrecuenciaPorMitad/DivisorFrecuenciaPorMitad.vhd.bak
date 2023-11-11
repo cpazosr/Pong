@@ -1,0 +1,23 @@
+-- Divisor de frecuencia por mitad
+-- Pensado para divisor de frecuencia de 50Mhz a 25Mhz
+-- Carlos A. Pazos Reyes	A01378262
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;									-- librerias
+
+ENTITY DivisorFrecuenciaPorMitad IS
+	PORT (CLK_ENTRADA, RST: IN std_logic;					-- reloj entrada y reset
+			CLK_SALIDA: OUT std_logic);						-- reloj mitad de frecuencia
+END ENTITY DivisorFrecuenciaPorMitad;
+
+ARCHITECTURE ARC OF DivisorFrecuenciaPorMitad IS
+
+COMPONENT FlipFlopJK IS
+	PORT (CLK, RST, J, K: IN std_logic;						-- ENTRADAS CONTROL
+			Q, NOT_Q: OUT std_logic);							-- salidas Q+ y /Q+
+END COMPONENT FlipFlopJK;
+
+SIGNAL Q, NOT_Q: std_logic;
+
+BEGIN
+	FF0: FlipFlopJK PORT MAP (CLK_ENTRADA, RST, '1', '1', );
