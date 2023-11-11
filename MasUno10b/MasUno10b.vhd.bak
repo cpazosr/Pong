@@ -1,0 +1,32 @@
+-- Mas uno en cuenta de 10 bits
+-- Carlos A. Pazos Reyes	A01378262
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY MasUno10b IS
+	PORT (A: IN std_logic_vector (9 DOWNTO 0);			-- 10 bits entrada: 1
+			S: OUT std_logic_vector (9 DOWNTO 0);			-- cuenta sumada
+			Cout: OUT std_logic);								-- carry out si necesario
+END ENTITY MasUno10b;
+
+ARCHITECTURE ARC OF MasUno10b IS
+
+COMPONENT HalfAdder is
+	PORT (A, B: IN std_logic;									-- componente Half Adder
+			S, Co: OUT std_logic);
+END COMPONENT HalfAdder;
+
+SIGNAL C: std_logic_vector (9 DOWNTO 1);					-- cables para sumar los carry
+
+BEGIN 
+	I0: HalfAdder PORT MAP (A(0), '1', S(0), C(1));		-- instancias
+	I1: HalfAdder PORT MAP (A(1), C(1), S(1), C(2));
+	I2: HalfAdder PORT MAP (A(2), C(2), S(2), C(3));
+	I3: HalfAdder PORT MAP (A(3), C(3), S(3), C(4));
+	I4: HalfAdder PORT MAP (A(4), C(4), S(4), C(5));
+	I5: HalfAdder PORT MAP (A(5), C(5), S(5), C(6));
+	I6: HalfAdder PORT MAP (A(6), C(6), S(6), C(7));
+	I7: HalfAdder PORT MAP (A(7), C(7), S(7), C(8));
+	I8: HalfAdder PORT MAP (A(8), C(8), S(8), C(9));
+	I9: HalfAdder PORT MAP (A(9), C(9), S(9), Cout);
